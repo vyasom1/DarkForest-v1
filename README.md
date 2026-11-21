@@ -1,21 +1,24 @@
-# DarkForest V1
+# DarkForest
 
-**DarkForest V1** is the first public portfolio build of an ongoing Unreal Engine 5.3 and C++ third-person melee project. You play a hero defending a forest village, learning to deflect goblin attacks, and finally confronting the Goblin King in a three-phase boss fight.
+DarkForest is a short third-person sword-fighting demo built in Unreal Engine 5.3 with C++. Ordinary goblins teach the timing of a deflect. The Goblin King asks you to use it under pressure: break his posture, land a deathblow, and take away one of his three health segments.
 
-## Download (Windows)
+## Download for Windows
 
-- **Release:** [DarkForest v1.0.0 — Windows x64](https://github.com/vyasom1/DarkForest-v1/releases/download/v1.0.0/DarkForest-v1-Windows-x64.zip)
-- **How to launch:**
-  1. Download `DarkForest-v1-Windows-x64.zip` and extract it to a folder of your choice.
-  2. Run `MyProject.exe` (or `MyProject-Win64-Shipping.exe` once the Shipping package is published) from the extracted folder. No Unreal Engine installation is required.
+**Status: pending.** The Windows build is attached to the [v1.0.0 release](https://github.com/vyasom1/DarkForest-v1/releases/tag/v1.0.0) as a draft while I confirm redistribution permission for the generated cinematics. The direct asset link will be:
 
-> Note: the Windows Shipping package is being prepared and will be attached to the v1.0.0 release. The source snapshot in this repository is available for review today.
+`https://github.com/vyasom1/DarkForest-v1/releases/download/v1.0.0/DarkForest-v1-Windows-x64.zip`
 
-## Gameplay screenshot
+Once published, the steps are: extract the entire ZIP and double-click `MyProject.exe`. Unreal Editor is not required.
 
-![DarkForest gameplay](docs/shots/darkforest-portfolio.png)
+![Gameplay: the player faces the Goblin King while the health and posture HUD is visible](docs/shots/darkforest-portfolio.png)
 
-## Controls
+## What I worked on
+
+- **Sword hit detection** — [`DarkForestHero.cpp`](Source/MyProject/Player/DarkForestHero.cpp) (`ResolveSwordHit`): a sampled hit check that runs through the active part of the swing, accounts for the enemy capsule, and remembers which enemies a swing has already hit.
+- **The King's posture and phase transitions** — [`GoblinKingPhaseComponent.cpp`](Source/MyProject/Enemy/GoblinKingPhaseComponent.cpp): posture damage, posture break, deathblow, and segment removal that advances the phase.
+- **HUD that responds to combat events** — [`BossHealthWidget.cpp`](Source/MyProject/UI/BossHealthWidget.cpp): segmented health, posture, phase, and windup/punish cues driven by the boss state.
+
+### Controls
 
 | Input | Action |
 | --- | --- |
@@ -28,36 +31,24 @@
 | V | Skip a scene |
 | P | Pause |
 
-## What I implemented (C++)
+## Two bugs that shaped the combat
 
-- Three-phase boss encounter with segmented health, posture breaks, and deathblow-driven phase transitions.
-- Posture and health HUD, windup/recovery cues, and punish windows.
-- Combat tutorial, checkpoint saves, Continue, and skippable opening/ending cinematics.
+One click used to play the whole sword combo. All three attack entries pointed to the same 5.47-second animation, so the first swing looked like the player had already committed to the entire sequence. I split the clip into three strikes and gave each one its own attack data. In the editor test, one input played the first strike and the character returned to idle.
 
-Direct links to the C++:
+A swing could look like it connected while the goblin lost no health. I changed the hit check to run throughout the active part of the swing and account for the enemy capsule. Each swing remembers which enemies it has already hit, so a longer contact still deals damage only once. In one test, a frontal strike took a goblin from 90 health to 65. Facing away or swinging from 600 cm away dealt no damage.
 
-| System | Source |
-| --- | --- |
-| Phase transitions, posture and deathblows | [GoblinKingPhaseComponent.cpp](Source/MyProject/Enemy/GoblinKingPhaseComponent.cpp) |
-| Attack selection, windup and recovery | [GoblinKing.cpp](Source/MyProject/Enemy/GoblinKing.cpp) |
-| Player input, lock-on and combat feedback | [DarkForestHero.cpp](Source/MyProject/Player/DarkForestHero.cpp) |
-| Segmented health, posture and phase UI | [BossHealthWidget.cpp](Source/MyProject/UI/BossHealthWidget.cpp) |
-| Story progression and cinematics | [DarkForestStory.cpp](Source/MyProject/World/DarkForestStory.cpp) |
-| Checkpoint and Continue state | [DemoFrontendState.cpp](Source/MyProject/UI/DemoFrontendState.cpp) |
-| Boss regression tests | [BossAutomationTests.cpp](Source/MyProject/Tests/BossAutomationTests.cpp) |
+## Tools, assets, and verification
 
-## Design decision: posture break → deathblow → phase advance
+I used AI assistance for parts of the implementation, debugging, and documentation. I tested the packaged Windows build on my own machine. The source snapshot includes 20 Unreal automation tests covering combat, boss phases, and damage numbers; a separate 33-check setup script verified the boss HUD bindings. 30 FPS on a GTX 1650 is a target, not a measured packaged result.
 
-The Goblin King has three health segments and a posture meter. Taking posture damage fills the meter; when it breaks, the King staggers and a deathblow window opens. Landing the deathblow removes the current health segment and advances the boss to the next phase (new attacks, faster cadence). This makes timing and defense matter: a patient player creates the opening, then spends it to progress the fight.
+Third-party assets and generated cinematics are credited in [ATTRIBUTION.md](ATTRIBUTION.md) and [docs/ASSET_MANIFEST.json](docs/ASSET_MANIFEST.json). The opening and ending cinematics use Google Gemini/Veo; their redistribution permission is being confirmed before the Windows build is published.
 
-## Credits
+## Where DarkForest goes next
 
-- Om Vyas developed the project and integrated the gameplay, art, and cinematics.
-- Opening and ending cinematics use Google Gemini/Veo video; illustrated fallbacks are included.
-- Third-party character, animation, environment, and audio sources are documented in [ATTRIBUTION.md](ATTRIBUTION.md) and [docs/ASSET_MANIFEST.json](docs/ASSET_MANIFEST.json).
+This is the first public version of DarkForest. I'm keeping the scope small while I work on how each fight feels. The next things I want to polish are the transition from a goblin's approach into its first swing, the sound of a successful deflect, and how clearly the King signals an opening. Updates will come gradually as I playtest each change.
 
-## What's next
+For my next Unreal project, I want to build something that's easier to expand. One goal is to add an enemy or encounter without having to rewrite the combat system each time.
 
-- Further combat polish (hit-stop, camera feel, additional enemy variety).
-- A gameplay reel showing a timed deflect, a posture break, and a deathblow that changes the phase.
-- Measured performance work on a GTX 1650 target (30 FPS at 1920×1080, 75% render scale).
+## Feedback and contributions
+
+If you try the demo, I'd love to hear about one fight that felt good or one hit you couldn't read. Open a [GitHub issue](https://github.com/vyasom1/DarkForest-v1/issues) and tell me what happened. If you'd like to contribute code, animation, sound, or playtesting, you're welcome to open an issue with your idea so we can talk it through.
