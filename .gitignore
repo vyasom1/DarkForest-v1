@@ -1,0 +1,14 @@
+# Build outputs and generated artifacts
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# Visual Studio / VS Code
+.vs/
+*.user
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb

@@ -1,0 +1,170 @@
+{
+  "assets": [
+    {
+      "name": "Sword block retargeted for hero deflect",
+      "creator": "Quaternius; retargeted/cleaned/exported source by KinemIQ",
+      "license": "CC0-1.0",
+      "source": "https://kinemiq.app/animations/block-with-the-sword/",
+      "distribution_page": "https://huggingface.co/datasets/Kinemiq/free-game-animations",
+      "download": "https://huggingface.co/datasets/Kinemiq/free-game-animations/resolve/main/KinemIQ_Free_Animations_CC0_FBX.zip?download=true",
+      "date": "2026-11-20",
+      "file": "RawAssets/Animations/KinemIQ_Free_Animations_CC0_FBX.zip",
+      "sha256": "4ECEA37E2117A762C8D2BE10C7E0F06D9C7C9005AF0F9CAA64C8CE5D424EFB0E",
+      "extractedFile": "RawAssets/Animations/KinemIQ/FBX/Block_with_the_sword.fbx",
+      "extractedSha256": "F322F579DF055B702AB810D0DD7FF8A20A83CEE9BCA7C362BDED033ADF231F64",
+      "sourceMesh": "RawAssets/Animations/KinemIQ/KinemIQ_Mannequin.fbx",
+      "sourceMeshSha256": "658E68891B0F1FC6258B7D62067DB617495761EC23DE85491E60B236A0E2F8B2",
+      "retargetedFile": "Content/AutoAssets/Animation/Hero/Hero_SwordDeflect.uasset",
+      "retargetedSha256": "3C6BDDE7C0340864E85161F9A7903024CFA8BD8A52BD8316ECA58B3881D398B0",
+      "status": "Imported 1.2s sword block; retargeted to Manny SK_Mannequin; assigned to DA_HeroSwordDeflect and hero DeflectData. Fixed erroneous sideways axis and replaced lower-body tracks with matching Manny MM_Idle stance. Initial PlayRate 2.0. Runtime visual acceptance pending; native build/automation deferred by user."
+    },
+    {
+      "name": "Hero death retargeted from existing Quaternius Death01",
+      "creator": "Quaternius",
+      "license": "CC0-1.0",
+      "source": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "date": "2026-11-20",
+      "file": "Content/AutoAssets/Animation/Hero/Hero_Death.uasset",
+      "sha256": "5B6C37E55A5D9622E5CFD6C3C6F0D6F384E0803178B218EDF8C07B71B60841B3",
+      "status": "Derived from the previously downloaded Standard pack; retargeted to Manny. No new download required."
+    },
+    {
+      "name": "Goblin death from existing animated goblin release",
+      "creator": "Danimal; goblin model by xGhostx7; knife by Wind astella",
+      "license": "CC-BY-3.0 (assembled release)",
+      "source": "https://lpc.opengameart.org/content/goblin-animated-by-motion-capture",
+      "date": "2026-11-20",
+      "file": "Content/AutoAssets/Characters/Goblin/Goblin_LOD0_Anim_GoblinArmature_Die-jump-ground-face4_test.uasset",
+      "sha256": "48ADD12FD355AEC6F17AFC7566850B1038C5289C0B24F8D992A6E5B2A5617455",
+      "status": "Existing skeleton-compatible imported clip; native death playback added. Original archive provenance retained below."
+    },
+    {
+      "name": "Goblin animated by Motion capture",
+      "creator": "Danimal; goblin model by xGhostx7; knife by Wind astella",
+      "license": "CC-BY-3.0 (assembled release)",
+      "source": "https://lpc.opengameart.org/content/goblin-animated-by-motion-capture",
+      "download": "https://lpc.opengameart.org/sites/default/files/Goblin_0.zip",
+      "file": "RawAssets/Downloads/Goblin_0.zip",
+      "sha256": "9DD294E6A509EC9A4036D3694E73E13EEAAF80E800604E4E7E7957088D46CC3F",
+      "extractedFile": "RawAssets/Models/Goblin.blend",
+      "extractedSha256": "33069887AF50AF1053310E4B39861B9FAE6925D20520229DE705C42F30E809C3",
+      "fbxExports": [
+        {
+          "file": "RawAssets/Models/Goblin/Goblin_LOD0.fbx",
+          "sha256": "9C9448AE2E6374D841E52C5876A5572F4F6AEE55BEE4FD3EAA6F076B7506EB40",
+          "triangles": 8858
+        },
+        {
+          "file": "RawAssets/Models/Goblin/Goblin_LOD1.fbx",
+          "sha256": "A877F871264DA62DB1E370954815D07914733BF7133D5F77291F33F76CC0B8BD",
+          "triangles": 4429
+        },
+        {
+          "file": "RawAssets/Models/Goblin/Goblin_LOD2.fbx",
+          "sha256": "2D6FC75E74C68B9B5745CD45BBD7B9E2A49D939D11F632DDD0BEB16EDEB0EC81",
+          "triangles": 2213
+        }
+      ],
+      "fbxReport": "RawAssets/Models/Goblin/GoblinFbxReport.json",
+      "blenderVersion": "4.2.9 LTS",
+      "fbxScale": "1 Blender unit = 30.48 cm; re-imported LOD0 height 145.2 cm vs 151.7 cm source pose (within 10%)",
+      "rigFacts": "25 bones, 19 weighted vertex groups, 2 UV maps, 10 actions, 10 published actions exported",
+      "animationCompatibility": "Seven source actions use six finger bones absent from the staged rig; 18 incompatible finger curves per action were dropped on export, body motion preserved. No action was deleted.",
+      "status": "FBX LOD0/LOD1/LOD2 exported and re-imported; scale, skinning, and action count verified. Not imported to Unreal yet; Quinn and the current AnimBP are unchanged."
+    },
+    {
+      "name": "Starter Wind and Fire",
+      "creator": "Epic Games",
+      "source": "Existing Unreal Engine Starter Content in this project",
+      "existingPackages": [
+        "/Game/StarterContent/Audio/Starter_Wind06",
+        "/Game/StarterContent/Audio/Fire01"
+      ],
+      "appliedTo": "DarkForest_Main: Forest wind ambience and Campfire audio 0–2",
+      "status": "Loop flags and saved assignments verified in editor; PIE playback unverified"
+    },
+    {
+      "name": "Ground 038",
+      "creator": "ambientCG",
+      "license": "CC0-1.0",
+      "source": "https://ambientcg.com/view?id=Ground038",
+      "download": "https://ambientcg.com/get?file=Ground038_2K-JPG.zip",
+      "file": "RawAssets/Downloads/Ground038_2K-JPG.zip",
+      "sha256": "DAC7C8FE8AEC03E520C2965E28427FF46DD5C39C858A4280D001F93519CB69CF",
+      "importedTo": "/Game/AutoAssets/Environment/Ground038",
+      "appliedTo": "DarkForest_Main: Forest path",
+      "maps": [
+        "Color",
+        "NormalDX",
+        "Roughness",
+        "AmbientOcclusion"
+      ],
+      "maxTextureSize": 2048
+    },
+    {
+      "name": "Goblins Sound Pack",
+      "creator": "artisticdude",
+      "license": "CC0-1.0",
+      "source": "https://lpc.opengameart.org/content/goblins-sound-pack",
+      "download": "https://lpc.opengameart.org/sites/default/files/goblins_0.zip",
+      "file": "RawAssets/Downloads/goblins_0.zip",
+      "sha256": "480E0FF1DF5EDA83A32F2781B4B5BD65606E8F43E0CA52175C1A9E08E2BC7D40",
+      "importedTo": "/Game/AutoAssets/Audio/Goblin",
+      "wavCount": 15,
+      "status": "15 takes imported. goblin-5 (tell) and goblin-9 (hurt) bind to ordinary goblins; goblin-2 and goblin-12 bind to the Goblin King. Audition and PIE playback unverified."
+    },
+    {
+      "name": "PLACEHOLDER_SwingWhoosh",
+      "source": "Tools/NewPlaceholderAudio.ps1",
+      "file": "RawAssets/Downloads/Audio/PLACEHOLDER_SwingWhoosh.wav",
+      "sha256": "FE0F6C89711EA274B7C0ABB5BFD71B8C1BC0D20EFB5A70866333A01AFAEB3557",
+      "importedTo": "/Game/AutoAssets/Audio/Placeholder/PLACEHOLDER_SwingWhoosh",
+      "status": "Generated placeholder, imported, bound to the hero sword swing. Audition unverified."
+    },
+    {
+      "name": "PLACEHOLDER_DeflectPing",
+      "source": "Tools/NewPlaceholderAudio.ps1",
+      "file": "RawAssets/Downloads/Audio/PLACEHOLDER_DeflectPing.wav",
+      "sha256": "5E350CABD0389B9182AF5C60167C7BB0E4957D865B0867A4EF2C2586DA2B0657",
+      "importedTo": "/Game/AutoAssets/Audio/Placeholder/PLACEHOLDER_DeflectPing",
+      "status": "Generated placeholder, imported, bound to a successful deflect. Audition unverified."
+    },
+    {
+      "name": "PLACEHOLDER_BodyImpact",
+      "source": "Tools/NewPlaceholderAudio.ps1",
+      "file": "RawAssets/Downloads/Audio/PLACEHOLDER_BodyImpact.wav",
+      "sha256": "89D83EE42F66957B11701823C401A7D0CDEA41649938388EB916BCCBCA585BA9",
+      "importedTo": "/Game/AutoAssets/Audio/Placeholder/PLACEHOLDER_BodyImpact",
+      "status": "Generated placeholder, imported, bound to sword impact. Audition unverified."
+    },
+    {
+      "name": "PLACEHOLDER_ShrineBell",
+      "source": "Tools/NewPlaceholderAudio.ps1",
+      "file": "RawAssets/Downloads/Audio/PLACEHOLDER_ShrineBell.wav",
+      "sha256": "58C52E2FAF8D84860E622FF3F50612C54EF593EE68D40888219D489C0FAF34B4",
+      "importedTo": "/Game/AutoAssets/Audio/Placeholder/PLACEHOLDER_ShrineBell",
+      "status": "Generated placeholder, imported, bound to the shrine activation bell. Audition unverified."
+    },
+    {
+      "name": "Quaternius Universal Animation Library Standard",
+      "creator": "Quaternius",
+      "license": "CC0-1.0",
+      "source": "https://quaternius.com/packs/universalanimationlibrary.html",
+      "download": "https://opengameart.org/sites/default/files/universal_animation_librarystandard.zip",
+      "date": "2026-11-19",
+      "file": "RawAssets/Animations/Quaternius-Universal-Standard.zip",
+      "sha256": "18FF1A7215F4852B320203E8AAF02A1578B5C8EEF9027FBAEDFCEDC7B85A3AC2",
+      "status": "Downloaded; import and retarget pending"
+    },
+    {
+      "name": "MoCap Online TC Sword Free Pack supplied by user",
+      "source": "https://mocaponline.com/products/tc-sword",
+      "license": "MoCap Online Standard License; user supplied named pack for integration",
+      "license_url": "https://mocaponline.com/pages/standard-license",
+      "date": "2026-11-19",
+      "file": "RawAssets/MCO_TC_Sword_Free_Pack_01/TC_Sword_Free_Pack/UE4_Pack/TC_Sword/Content/TC_Sword/Animation/In_Place/KBS_Sword_ATK_Combo_01_001_IP.uasset",
+      "sha256": "BABCFE1950AD3443E3CDF63DAD2609C284F1977153F4CC1A3E85E68132E0143E",
+      "status": "Copied UE4 package into Content/TC_Sword; retargeted combo and created unbound Data Asset. Slot and gameplay unverified. No dedicated parry in supplied files."
+    }
+  ]
+}
