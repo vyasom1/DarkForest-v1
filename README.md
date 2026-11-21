@@ -4,11 +4,7 @@ DarkForest is a short third-person sword-fighting demo built in Unreal Engine 5.
 
 ## Download for Windows
 
-**Status: pending.** The Windows build is attached to the [v1.0.0 release](https://github.com/vyasom1/DarkForest-v1/releases/tag/v1.0.0) as a draft while I confirm redistribution permission for the generated cinematics. The direct asset link will be:
-
-`https://github.com/vyasom1/DarkForest-v1/releases/download/v1.0.0/DarkForest-v1-Windows-x64.zip`
-
-Once published, the steps are: extract the entire ZIP and double-click `MyProject.exe`. Unreal Editor is not required.
+Download: [DarkForest-v1-Windows-x64.zip](https://github.com/vyasom1/DarkForest-v1/releases/download/v1.0.0/DarkForest-v1-Windows-x64.zip) (515 MB). Extract the entire ZIP and double-click `MyProject.exe`. Unreal Editor is not required.
 
 ![Gameplay: the player faces the Goblin King while the health and posture HUD is visible](docs/shots/darkforest-portfolio.png)
 
